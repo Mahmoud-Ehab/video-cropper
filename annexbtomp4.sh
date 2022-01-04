@@ -1,7 +1,7 @@
 #!/bin/bash
 if [ -z $1 ] || [ -z $2 ]; then
-	echo "Valid Usage: file.ts input.mp4 output.mp4"
-	exit 0
+	echo "Valid Usage: ./script.sh input.mp4 output.mp4"
+	exit 2
 fi
 
 INP=$1
