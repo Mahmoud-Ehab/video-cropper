@@ -32,7 +32,7 @@ mkdir $dirpath
 for (( i=0; i<$count; i++ ))
 do
 	output="$dirpath/clip$i.mp4"
-	$bashpath/cropper.sh $filepath ${T1[$i]} ${T2[$i]} $output
+	$bashpath/cutter.sh $filepath ${T1[$i]} ${T2[$i]} $output
 done
 
 # Combine the outputs its more than one
