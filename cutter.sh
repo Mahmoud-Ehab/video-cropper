@@ -1,7 +1,7 @@
 #!/bin/bash
 if [ -z $1 ] || [ -z $2 ] || [ -z $3 ] || [ -z $4 ]; then
-	echo "Valid Usage: ./file.sh src.mp4 hh:mm:ss hh:mm:ss out.mp4"
-	exit 0
+	echo "Valid Usage: ./script.sh src.mp4 hh:mm:ss hh:mm:ss out.mp4"
+	exit 2
 fi
 
 INP=$1
