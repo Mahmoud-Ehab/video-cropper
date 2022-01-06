@@ -10,20 +10,20 @@ OUT=$4
 T1=$2
 T2=$3
 
+IFS=':' # For splitting T1 and T2
+
 # Initialize start time list
 start=()
-IFS=':'
-read -ra ADDR <<< $T1
-for i in ${ADDR[@]};
+read -a arr <<< $T1
+for i in ${arr[@]};
 do
 	start+=($i)
 done
 
 # Initialize end time list
 end=()
-IFS=':'
-read -ra ADDR <<< $T2
-for i in ${ADDR[@]};
+read -a arr <<< $T2
+for i in ${arr[@]};
 do
 	end+=($i)
 done
