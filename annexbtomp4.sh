@@ -4,7 +4,4 @@ if [ -z $1 ] || [ -z $2 ]; then
 	exit 2
 fi
 
-INP=$1
-OUT=$2
-
 ffmpeg -y -i "$1" -acodec copy -ar 44100 -ab 96k -coder ac -vbsf h264_mp4toannexb "$2"
