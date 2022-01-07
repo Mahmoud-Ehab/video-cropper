@@ -45,7 +45,7 @@ if [ $count -gt 1 ]; then
 		tsfile="$dirpath/clip$i.ts"
 		
 		# Convert it to annexb
-		$bashpath/mp4toannexb.sh $mp4file $tsfile
+		$bashpath/mp4tots.sh $mp4file $tsfile
 		
 		# Remove the mp4 file
 		rm $mp4file
@@ -62,7 +62,7 @@ if [ $count -gt 1 ]; then
 	rm $tsfiles
 	
 	# Convert output.ts file into mp4
-	$bashpath/annexbtomp4.sh $dirpath/output.ts $dirpath/output.mp4
+	$bashpath/tstomp4.sh $dirpath/output.ts $dirpath/output.mp4
 	rm $dirpath/output.ts
 fi
 
