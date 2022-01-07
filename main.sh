@@ -32,7 +32,7 @@ mkdir $dirpath
 for (( i=0; i<$count; i++ ))
 do
 	output="$dirpath/clip$i.mp4"
-	$bashpath/cutter.sh $filepath ${T1[$i]} ${T2[$i]} $output
+	bash $bashpath/cutter.sh $filepath ${T1[$i]} ${T2[$i]} $output
 done
 
 # Combine the outputs its more than one
@@ -44,8 +44,8 @@ if [ $count -gt 1 ]; then
 		mp4file="$dirpath/clip$i.mp4"
 		tsfile="$dirpath/clip$i.ts"
 		
-		# Convert it to annexb
-		$bashpath/mp4tots.sh $mp4file $tsfile
+		# Convert it into ts file
+		bash $bashpath/mp4tots.sh $mp4file $tsfile
 		
 		# Remove the mp4 file
 		rm $mp4file
@@ -62,7 +62,7 @@ if [ $count -gt 1 ]; then
 	rm $tsfiles
 	
 	# Convert output.ts file into mp4
-	$bashpath/tstomp4.sh $dirpath/output.ts $dirpath/output.mp4
+	bash $bashpath/tstomp4.sh $dirpath/output.ts $dirpath/output.mp4
 	rm $dirpath/output.ts
 fi
 
