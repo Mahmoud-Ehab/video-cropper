@@ -6,11 +6,10 @@ fi
 
 INP=$1
 OUT=$4
-
 T1=$2
 T2=$3
 
-IFS=':' # For splitting T1 and T2
+IFS=':' #For splitting T1 and T2
 
 # Initialize start time list
 start=()
@@ -28,7 +27,7 @@ do
 	end+=($i)
 done
 
-# Evaluate the dur string for output
+# Evaluate the duration between T1 and T2
 # secs
 if [ ${end[2]} -ge ${start[2]} ]; then
 	ss=$(( 10#${end[2]} - 10#${start[2]} ))
@@ -44,17 +43,15 @@ else
 	mm=$(( 10#${end[1]} + 60 - 10#${start[1]} ))
 fi
 # hours
-hh=$(( 10#${end[0]} - 10#${start[0]} ))
+if [ ${end[1]} -ge ${start[1]} ]; then
+	hh=$(( 10#${end[0]} - 10#${start[0]} ))
+else
+	exit 1
+fi
 
-if [ $ss -lt 10 ]; then
-	ss="0$ss"
-fi
-if [ $mm -lt 10 ]; then
-	mm="0$mm"
-fi
-if [ $hh -lt 10 ]; then
-	hh="0$hh"
-fi
+if [ $ss -lt 10 ]; then ss="0$ss"; fi
+if [ $mm -lt 10 ]; then mm="0$mm"; fi
+if [ $hh -lt 10 ]; then hh="0$hh"; fi
 
 dur=$hh:$mm:$ss
 
